@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Casuals Coffee Shop</title>
   <style>
+    nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #FFD700;
+  background-color: #fff;
+  color: #C8102E;
+  font-weight: bold;
+}
+
     body {
       font-family: 'Segoe UI', sans-serif;
       max-width: 900px;
@@ -54,6 +68,16 @@
     <img src="Football_specials_logo.jpg" alt="Casuals Coffee Shop Logo" />
     <h1>Casuals Coffee Shop</h1>
   </header>
+  <nav>
+  <select id="categorySelect" onchange="navigateToCategory()">
+    <option value="">-- Select Category --</option>
+    <option value="index.html">All</option>
+    <option value="art.html">Art</option>
+    <option value="music.html">Music</option>
+    <option value="football.html">Football</option>
+  </select>
+</nav>
+
 
   <!-- Book Listings Start -->
   <div class="book">
@@ -86,6 +110,15 @@
       hostedButtonId: "RYRUKQ4D8NN9E"
     }).render("#paypal-container-the-twits");
   </script>
+<script>
+  function navigateToCategory() {
+    const select = document.getElementById("categorySelect");
+    const page = select.value;
+    if (page) {
+      window.location.href = page;
+    }
+  }
+</script>
 
 </body>
 </html>
