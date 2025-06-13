@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Buy My Book</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Second-Hand Book Store</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 30px;
-      max-width: 600px;
+      max-width: 900px;
       margin: auto;
+      padding: 20px;
+      background: #f7f7f7;
     }
     .book {
+      background: white;
       border: 1px solid #ccc;
-      padding: 20px;
       border-radius: 8px;
-      background: #f9f9f9;
-      margin-bottom: 40px;
-    }
-    .book img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 4px;
-      margin-bottom: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .book h2 {
       margin-top: 0;
     }
+    .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
     .paypal-button {
-      margin-top: 20px;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
 
+  <h1>My Bookstore</h1>
+
+  <!-- Book Listings Start -->
   <div class="book">
-    <h2>Book Title: My Amazing Book</h2>
-    <p>Author: You</p>
-    <p>Price: £10.00</p>
-    <img src="https://via.placeholder.com/300x400?text=My+Book" alt="Book Image" />
-    
-    <!-- PayPal Button Container -->
-    <div id="paypal-container-RYRUKQ4D8NN9E" class="paypal-button"></div>
+    <h2>Fantastic Mr Fox</h2>
+    <p class="price">Price: £10</p>
+    <p>Wonderful kids book</p>
+    <div id="paypal-container-fantastic-mr-fox" class="paypal-button"></div>
   </div>
 
-  <!-- PayPal Script -->
+  <div class="book">
+    <h2>The Twits</h2>
+    <p class="price">Price: £14</p>
+    <p>Great book</p>
+    <div id="paypal-container-the-twits" class="paypal-button"></div>
+  </div>
+  <!-- Book Listings End -->
+
+  <!-- PayPal SDK -->
   <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAA_e5g6-l3dliy_ORhc1Er0D8lP0dRR7GypvGvRnDceikp6Aw-_NSqcIVWKG2JwURuWH_Z5Z7cKF2nkR8&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+    src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID_HERE&components=hosted-buttons&currency=GBP">
   </script>
 
+  <!-- PayPal Buttons Script -->
   <script>
     paypal.HostedButtons({
-      hostedButtonId: "RYRUKQ4D8NN9E",
-    }).render("#paypal-container-RYRUKQ4D8NN9E");
+      hostedButtonId: "YOUR_BUTTON_ID_FOR_FANTASTIC_MR_FOX"
+    }).render("#paypal-container-fantastic-mr-fox");
+
+    paypal.HostedButtons({
+      hostedButtonId: "YOUR_BUTTON_ID_FOR_THE_TWITS"
+    }).render("#paypal-container-the-twits");
   </script>
 
 </body>
