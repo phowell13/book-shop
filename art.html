@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casuals Coffee Shop</title>
+  <style>
+    nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #FFD700;
+  background-color: #fff;
+  color: #C8102E;
+  font-weight: bold;
+}
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: #fff8e1;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header img {
+      width: 150px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 2em;
+      color: #C8102E; /* Red from logo */
+      margin: 0;
+    }
+    .book {
+      background: #fff;
+      border: 2px solid #FFD700; /* Yellow from logo */
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .book h2 {
+      margin-top: 0;
+      color: #C8102E;
+    }
+    .price {
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .paypal-button {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Football_specials_logo.jpg" alt="Casuals Coffee Shop Logo" />
+    <h1>Casuals Coffee Shop</h1>
+  </header>
+  <nav>
+  <select id="categorySelect" onchange="navigateToCategory()">
+    <option value="">-- Select Category --</option>
+    <option value="index.html">All</option>
+    <option value="art.html">Art</option>
+    <option value="music.html">Music</option>
+    <option value="football.html">Football</option>
+  </select>
+</nav>
+
+
+  <!-- Book Listings Start -->
+  <div class="Art">
+    <h2>Sunshine on Leith</h2>
+    <p class="price">Price: £10</p>
+    <p>Looking over Leith</p>
+    <div id="paypal-container-fantastic-mr-fox" class="paypal-button"></div>
+  </div>
+
+  <div class="book">
+    <h2>Going Underground</h2>
+    <p class="price">Price: £50</p>
+    <p>Great book</p>
+    <div id="paypal-container-the-twits" class="paypal-button"></div>
+  </div>
+  <!-- Book Listings End -->
+
+  <!-- PayPal SDK -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAA_e5g6-l3dliy_ORhc1Er0D8lP0dRR7GypvGvRnDceikp6Aw-_NSqcIVWKG2JwURuWH_Z5Z7cKF2nkR8&components=hosted-buttons&currency=GBP">
+  </script>
+
+  <!-- PayPal Buttons Script -->
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "RYRUKQ4D8NN9E"
+    }).render("#paypal-container-fantastic-mr-fox");
+
+    paypal.HostedButtons({
+      hostedButtonId: "RYRUKQ4D8NN9E"
+    }).render("#paypal-container-the-twits");
+  </script>
+<script>
+  function navigateToCategory() {
+    const select = document.getElementById("categorySelect");
+    const page = select.value;
+    if (page) {
+      window.location.href = page;
+    }
+  }
+</script>
+
+</body>
+</html>
