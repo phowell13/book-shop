@@ -5,20 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Casuals Coffee Shop</title>
   <style>
-    nav {
-  text-align: center;
-  margin-bottom: 30px;
-}
-select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 2px solid #FFD700;
-  background-color: #fff;
-  color: #C8102E;
-  font-weight: bold;
-}
-
     body {
       font-family: 'Segoe UI', sans-serif;
       max-width: 900px;
@@ -29,7 +15,7 @@ select {
     }
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     header img {
       width: 150px;
@@ -37,12 +23,25 @@ select {
     }
     header h1 {
       font-size: 2em;
-      color: #C8102E; /* Red from logo */
+      color: #C8102E;
       margin: 0;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 2px solid #FFD700;
+      background-color: #fff;
+      color: #C8102E;
+      font-weight: bold;
     }
     .book {
       background: #fff;
-      border: 2px solid #FFD700; /* Yellow from logo */
+      border: 2px solid #FFD700;
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 30px;
@@ -60,6 +59,10 @@ select {
     .paypal-button {
       margin-top: 15px;
     }
+    .view-cart {
+      text-align: center;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -68,56 +71,67 @@ select {
     <img src="Football_specials_logo.jpg" alt="Casuals Coffee Shop Logo" />
     <h1>Casuals Coffee Shop</h1>
   </header>
+
+  <!-- Category Dropdown -->
   <nav>
-  <select id="categorySelect" onchange="navigateToCategory()">
-    <option value="">-- Select Category --</option>
-    <option value="index.html">All</option>
-    <option value="art.html">Art</option>
-    <option value="music.html">Music</option>
-  </select>
-</nav>
+    <select id="categorySelect" onchange="navigateToCategory()">
+      <option value="">-- Select Category --</option>
+      <option value="index.html">All</option>
+      <option value="art.html">Art</option>
+      <option value="music.html">Music</option>
+      <option value="football.html">Football</option>
+    </select>
+  </nav>
 
-
-  <!-- Book Listings Start -->
+  <!-- Book 1 -->
   <div class="book">
     <h2>Fantastic Mr Fox</h2>
     <p class="price">Price: £10</p>
-    <p>Wonderful kids book</p>
-    <div id="paypal-container-fantastic-mr-fox" class="paypal-button"></div>
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_cart">
+      <input type="hidden" name="add" value="1">
+      <input type="hidden" name="business" value="your-email@example.com">
+      <input type="hidden" name="item_name" value="Fantastic Mr Fox">
+      <input type="hidden" name="amount" value="10.00">
+      <input type="hidden" name="currency_code" value="GBP">
+      <input type="submit" value="Add to Basket">
+    </form>
   </div>
 
+  <!-- Book 2 -->
   <div class="book">
     <h2>The Twits</h2>
     <p class="price">Price: £14</p>
-    <p>Great book</p>
-    <div id="paypal-container-the-twits" class="paypal-button"></div>
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_cart">
+      <input type="hidden" name="add" value="1">
+      <input type="hidden" name="business" value="your-email@example.com">
+      <input type="hidden" name="item_name" value="The Twits">
+      <input type="hidden" name="amount" value="14.00">
+      <input type="hidden" name="currency_code" value="GBP">
+      <input type="submit" value="Add to Basket">
+    </form>
   </div>
-  <!-- Book Listings End -->
 
-  <!-- PayPal SDK -->
-  <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAA_e5g6-l3dliy_ORhc1Er0D8lP0dRR7GypvGvRnDceikp6Aw-_NSqcIVWKG2JwURuWH_Z5Z7cKF2nkR8&components=hosted-buttons&currency=GBP">
-  </script>
+  <!-- View Cart Button -->
+  <div class="view-cart">
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_cart">
+      <input type="hidden" name="display" value="1">
+      <input type="hidden" name="business" value="your-email@example.com">
+      <input type="submit" value="View Basket">
+    </form>
+  </div>
 
-  <!-- PayPal Buttons Script -->
+  <!-- Script to handle category switching -->
   <script>
-    paypal.HostedButtons({
-      hostedButtonId: "RYRUKQ4D8NN9E"
-    }).render("#paypal-container-fantastic-mr-fox");
-
-    paypal.HostedButtons({
-      hostedButtonId: "RYRUKQ4D8NN9E"
-    }).render("#paypal-container-the-twits");
-  </script>
-<script>
-  function navigateToCategory() {
-    const select = document.getElementById("categorySelect");
-    const page = select.value;
-    if (page) {
-      window.location.href = page;
+    function navigateToCategory() {
+      const page = document.getElementById("categorySelect").value;
+      if (page) {
+        window.location.href = page;
+      }
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
