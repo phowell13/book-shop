@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Second Hand Bookstore</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .book-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .book {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .book img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .book h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+    }
+    .book p {
+      flex-grow: 1;
+      font-size: 0.9em;
+      margin-bottom: 15px;
+    }
+    .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .paypal-button {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Second Hand Bookstore</h1>
+
+  <div class="book-list" id="book-list">
+    <!-- Books will be injected here -->
+  </div>
+
+  <script>
+    // Your books here - add new books to this array easily
+    const books = [
+      {
+        id: 'book1',
+        title: 'Book Title One',
+        description: 'A brief description of book one.',
+        price: '10.00',
+        currency: 'USD',
+        paypalButtonId: 'YOUR_PAYPAL_BUTTON_ID_1',
+        image: 'https://via.placeholder.com/200x300?text=Book+1',
+      },
+      {
+        id: 'book2',
+        title: 'Book Title Two',
+        description: 'A brief description of book two.',
+        price: '15.00',
+        currency: 'USD',
+        paypalButtonId: 'YOUR_PAYPAL_BUTTON_ID_2',
+        image: 'https://via.placeholder.com/200x300?text=Book+2',
+      },
+      // Add more books here
+    ];
+
+    const bookList = document.getElementById('book-list');
+
+    books.forEach(book => {
+      const bookEl = document.createElement('div');
+      bookEl.classList.add('book');
+      bookEl.innerHTML = `
+        <img src="${book.image}" alt="${book.title}" />
+        <h3>${book.title}</h3>
+        <p>${book.description}</p>
+        <div class="price">$${book.price}</div>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="paypal-button">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="${book.paypalButtonId}" />
+          <input type="submit" value="Buy Now" />
+        </form>
+      `;
+      bookList.appendChild(bookEl);
+    });
+  </script>
+
+</body>
+</html>
