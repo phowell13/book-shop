@@ -56,14 +56,23 @@
     }
   </style>
 </head>
+    <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA_e5g6-l3dliy_ORhc1Er0D8lP0dRR7GypvGvRnDceikp6Aw-_NSqcIVWKG2JwURuWH_Z5Z7cKF2nkR8&components=hosted-buttons&disable-funding=venmo&currency=GBP">
+</script>
 <body>
+
 
   <h1>My Second Hand Bookstore</h1>
 
   <div class="book-list" id="book-list">
     <!-- Books will be injected here -->
   </div>
-
+<div id="paypal-container-RYRUKQ4D8NN9E"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "RYRUKQ4D8NN9E",
+  }).render("#paypal-container-RYRUKQ4D8NN9E")
+</script>
   <script>
     // Your books here - add new books to this array easily
     const books = [
