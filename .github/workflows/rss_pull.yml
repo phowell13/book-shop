@@ -1,0 +1,32 @@
+name: Pull RSS Feed
+
+on:
+  schedule:
+    - cron: '0 0 */3 * *'  # every 3 days at midnight UTC
+  workflow_dispatch:  # allows manual trigger
+
+jobs:
+  fetch-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install feedparser
+
+      - name: Run RSS fetch script
+        run: python scripts/fetch_rss.py
+
+      - name: Commit new posts
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add _posts
+          git commit -m "Auto-blog post update from RSS" || echo "No changes to commit"
+          git push
