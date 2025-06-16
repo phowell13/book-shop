@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Finding Rare Books at Casuals"
-date: 2025-06-17
+date: 2025-06-15
 categories: blog
 ---
 
