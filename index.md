@@ -3,14 +3,6 @@ layout: home
 title: Football Specials Coffee Shop
 ---
 
-<nav>
-  <select id="categorySelect" onchange="navigateToCategory()">
-    <option value="">-- Select Category --</option>
-    <option value="art.html">Art</option>
-    <option value="music.html">Music</option>
-    <option value="football.html">Football</option>
-  </select>
-</nav>
 <style>
   img#footballLogo {
     width: 300px !important;
@@ -21,6 +13,15 @@ title: Football Specials Coffee Shop
   }
 </style>
 
+<nav>
+  <select id="categorySelect" onchange="navigateToCategory()">
+    <option value="">-- Select Category --</option>
+    <option value="art.html">Art</option>
+    <option value="music.html">Music</option>
+    <option value="football.html">Football</option>
+  </select>
+</nav>
+
 <script>
   function navigateToCategory() {
     const page = document.getElementById("categorySelect").value;
@@ -29,5 +30,7 @@ title: Football Specials Coffee Shop
     }
   }
 </script>
+
 <img id="footballLogo" src="Football_specials_logo.jpg" alt="Football Specials Coffee Shop">
+
 Welcome to **Casuals Coffee Shop** — explore our blog posts below!
