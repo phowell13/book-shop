@@ -3,25 +3,26 @@ from datetime import datetime
 import os
 import hashlib
 
-# CONFIG
-FEED_URL = "https://hypebeast.com/feed"  # You can change this
+FEED_URL = "https://hypebeast.com/feed"
 POST_DIR = "_posts"
 
-# Ensure posts directory exists
 os.makedirs(POST_DIR, exist_ok=True)
 
 feed = feedparser.parse(FEED_URL)
 
-for entry in feed.entries[:5]:  # limit how many per run
+for entry in feed.entries[:5]:
+    if not hasattr(entry, "published_parsed"):
+        continue
+
     title = entry.title
     date = datetime(*entry.published_parsed[:6])
     slug = hashlib.md5(entry.link.encode()).hexdigest()[:8]
     filename = f"{POST_DIR}/{date.strftime('%Y-%m-%d')}-{slug}.md"
 
     if os.path.exists(filename):
-        continue  # skip if already added
+        continue
 
-    content = entry.summary if "summary" in entry else ""
+    content = entry.summary if hasattr(entry, "summary") else ""
     url = entry.link
 
     with open(filename, "w", encoding="utf-8") as f:
