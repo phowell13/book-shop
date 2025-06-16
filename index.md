@@ -4,10 +4,9 @@ title: Casuals Coffee Shop
 ---
 
 <style>
-  img#footballLogo {
-    width: 300px !important;
-    height: auto !important;
-    max-width: 100%;
+  #logo {
+    width: 300px;
+    height: auto;
     margin: 20px 0;
     display: block;
   }
@@ -31,8 +30,7 @@ title: Casuals Coffee Shop
   }
 </script>
 
-<img id="footballLogo" src="Football_specials_logo.jpg" alt="Casuals Coffee Shop">
+<img id="logo" src="Football_specials_logo.jpg" alt="Site logo">
 
+<p>Welcome — explore our blog posts below!</p>
 
-
-Welcome to **Casuals Coffee Shop** — explore our blog posts below!
