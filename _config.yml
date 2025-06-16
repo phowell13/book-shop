@@ -1,0 +1,6 @@
+title: Casuals Coffee Shop
+description: A blog and shop for second-hand books, art, and music
+theme: minima
+logo: "/assets/images/Football_specials_logo.jpg"
+markdown: kramdown
+permalink: pretty
