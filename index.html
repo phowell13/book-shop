@@ -39,7 +39,7 @@
       color: #C8102E;
       font-weight: bold;
     }
-    .book {
+    .blog-post {
       background: #fff;
       border: 2px solid #FFD700;
       border-radius: 10px;
@@ -47,21 +47,17 @@
       margin-bottom: 30px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .book h2 {
+    .blog-post h2 {
       margin-top: 0;
       color: #C8102E;
     }
-    .price {
-      font-weight: bold;
-      color: #000;
+    .blog-post .date {
+      font-size: 0.9em;
+      color: #777;
       margin-bottom: 10px;
     }
-    .paypal-button {
-      margin-top: 15px;
-    }
-    .view-cart {
-      text-align: center;
-      margin-top: 40px;
+    .blog-post p {
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -76,59 +72,27 @@
   <nav>
     <select id="categorySelect" onchange="navigateToCategory()">
       <option value="">-- Select Category --</option>
-      <option value="index.html">All</option>
       <option value="art.html">Art</option>
       <option value="music.html">Music</option>
+      <option value="football.html">Football</option>
     </select>
   </nav>
 
-  <!-- Book 1 -->
-  <div class="book">
-    <h2>Fantastic Mr Fox</h2>
-    <p class="price">Price: £10</p>
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  <input type="hidden" name="cmd" value="_cart">
-  <input type="hidden" name="add" value="1">
-  <input type="hidden" name="business" value="your-paypal-email@example.com">
-  <input type="hidden" name="item_name" value="Fantastic Mr Fox">
-  <input type="hidden" name="amount" value="10.00">
-  <input type="hidden" name="currency_code" value="GBP">
-  <input type="hidden" name="shopping_url" value="https://phowell13.github.io/book-shop/index.html">
-  <input type="hidden" name="return" value="https://phowell13.github.io/book-shop/index.html">
-  <input type="submit" value="Add to Basket">
-</form>
-
+  <!-- Blog Post 1 -->
+  <div class="blog-post">
+    <h2>Welcome to Our Book Nook</h2>
+    <div class="date">Posted June 13, 2025</div>
+    <p>We’re excited to launch Casuals Coffee Shop — a relaxed online space to browse and buy second-hand books. Whether you're into music, art, or football, we’ve got a curated selection coming soon.</p>
   </div>
 
-  <!-- Book 2 -->
-  <div class="book">
-    <h2>The Twits</h2>
-    <p class="price">Price: £14</p>
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  <input type="hidden" name="cmd" value="_cart">
-  <input type="hidden" name="add" value="1">
-  <input type="hidden" name="business" value="your-paypal-email@example.com">
-  <input type="hidden" name="item_name" value="Fantastic Mr Fox">
-  <input type="hidden" name="amount" value="10.00">
-  <input type="hidden" name="currency_code" value="GBP">
-  <input type="hidden" name="shopping_url" value="https://phowell13.github.io/book-shop/index.html">
-  <input type="hidden" name="return" value="https://phowell13.github.io/book-shop/index.html">
-  <input type="submit" value="Add to Basket">
-</form>
-
+  <!-- Blog Post 2 -->
+  <div class="blog-post">
+    <h2>How It All Started</h2>
+    <div class="date">Posted June 10, 2025</div>
+    <p>This project began as a way to give our personal book collections new life. Each book has a story — and now, it’s your turn to keep the journey going. Stay tuned for regular updates, category spotlights, and community picks.</p>
   </div>
 
-  <!-- View Cart Button -->
-  <div class="view-cart">
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="display" value="1">
-      <input type="hidden" name="business" value="football_specials@hotmail.com">      
-      <input type="submit" value="View Basket">
-    </form>
-  </div>
-
-  <!-- Script to handle category switching -->
+  <!-- Script for navigation -->
   <script>
     function navigateToCategory() {
       const page = document.getElementById("categorySelect").value;
