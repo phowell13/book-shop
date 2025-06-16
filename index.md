@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Football Specials Coffee Shop
+title: Casuals Coffee Shop
 ---
 
 <style>
@@ -31,7 +31,7 @@ title: Football Specials Coffee Shop
   }
 </script>
 
-<img id="footballLogo" src="Football_specials_logo.jpg" alt="Football Specials Coffee Shop">
+<img id="footballLogo" src="Football_specials_logo.jpg" alt="Casuals Coffee Shop">
 
 
 
