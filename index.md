@@ -20,5 +20,5 @@ title: Football Specials Coffee Shop
     }
   }
 </script>
-<img src="Football_specials_logo.jpg" alt="Football Specials Coffee Shop" style="max-width: 300%; height: auto; margin: 20px 0;">
+<img src="Football_specials_logo.jpg" alt="Casuals Coffee Shop Logo" />
 Welcome to **Casuals Coffee Shop** — explore our blog posts below!
