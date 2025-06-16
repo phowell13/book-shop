@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Casuals Coffee Shop
+title: Football Specials Coffee Shop
 ---
 
 <nav>
@@ -20,5 +20,5 @@ title: Casuals Coffee Shop
     }
   }
 </script>
-<img src="Football_specials_logo.jpg" alt="Casuals Coffee Shop" style="max-width: 100%; height: auto; margin: 20px 0;">
+<img src="Football_specials_logo.jpg" alt="Football Specials Coffee Shop" style="max-width: 100%; height: auto; margin: 20px 0;">
 Welcome to **Casuals Coffee Shop** — explore our blog posts below!
