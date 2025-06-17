@@ -2,7 +2,6 @@ import os
 print("Current working directory:", os.getcwd())
 
 
-
 import os
 from datetime import datetime, timedelta
 
@@ -30,7 +29,9 @@ theme_samples = [
 def ensure_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
-
+        print(f"✅ Created directory: {path}")
+    else:
+        print(f"ℹ️ Directory already exists: {path}")
 
 def generate_posts(start_date, days=7):
     ensure_dir(POSTS_DIR)
@@ -39,11 +40,12 @@ def generate_posts(start_date, days=7):
         theme_index = i % len(theme_samples)
         theme, content = theme_samples[theme_index]
         filename = os.path.join(POSTS_DIR, f"{date.strftime('%Y-%m-%d')}.md")
+        print(f"📝 Writing: {filename}")
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(content)
-        print(f"Created: {filename}")
-
 
 if __name__ == "__main__":
+    print("🚀 Starting post generation...")
     today = datetime.today()
     generate_posts(today, 7)
+    print("✅ Done.")
