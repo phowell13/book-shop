@@ -2,7 +2,7 @@ import os
 from datetime import datetime, timedelta
 
 # Folder where posts will be saved
-POSTS_DIR = "posts"
+POSTS_DIR = "_posts"
 
 # Define the rotating themes and sample content
 theme_samples = [
