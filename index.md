@@ -30,7 +30,7 @@ title: Casuals Coffee Shop
   }
 </script>
 
-<img id="logo" src="Football_specials_logo.jpg" alt="Site logo">
+<img id="logo" src="CCS.png" alt="Site logo">
 
 <p>Welcome — explore our blog posts below!</p>
 
