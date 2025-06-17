@@ -1,0 +1,34 @@
+name: Generate Daily Posts
+
+on:
+  schedule:
+    - cron: '0 7 * * *' # Runs daily at 7am UTC
+  workflow_dispatch: # Optional: allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Dependencies
+      run: pip install --upgrade pip
+
+    - name: Run Post Generator
+      run: |
+        python scripts/generate_posts.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add posts/
+        git commit -m "🔄 Auto-generated blog post" || echo "No changes to commit"
+        git push
