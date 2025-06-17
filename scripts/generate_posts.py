@@ -1,4 +1,9 @@
 import os
+print("Current working directory:", os.getcwd())
+
+
+
+import os
 from datetime import datetime, timedelta
 
 # Folder where posts will be saved
